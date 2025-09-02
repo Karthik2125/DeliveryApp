@@ -112,7 +112,7 @@ const ChatBot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <Card className="fixed bottom-6 right-6 w-96 h-[500px] shadow-xl border-card-border bg-card z-50 flex flex-col">
+        <Card className="fixed bottom-6 right-6 w-96 h-[500px] shadow-xl border-card-border bg-card z-[9999] flex flex-col">
           <CardHeader className="pb-3 border-b border-card-border">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -205,7 +205,8 @@ const ChatBot = () => {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
                   disabled={isTyping}
-                  className="pointer-events-auto"
+                  autoFocus
+                  className="pointer-events-auto focus:ring-2 focus:ring-primary/20 focus:border-primary"
                 />
                 <Button
                   onClick={handleSendMessage}
