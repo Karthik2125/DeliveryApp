@@ -91,10 +91,16 @@ const ChatBot = () => {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    console.log("Key pressed:", e.key);
     if (e.key === "Enter") {
       e.preventDefault();
       handleSendMessage();
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("Input change:", e.target.value);
+    setInputValue(e.target.value);
   };
 
   return (
@@ -202,7 +208,7 @@ const ChatBot = () => {
                 <Input
                   placeholder="Ask about your shipments..."
                   value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
+                  onChange={handleInputChange}
                   onKeyDown={handleKeyDown}
                   disabled={isTyping}
                   autoFocus
