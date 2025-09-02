@@ -90,8 +90,9 @@ const ChatBot = () => {
     };
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       handleSendMessage();
     }
   };
@@ -202,8 +203,9 @@ const ChatBot = () => {
                   placeholder="Ask about your shipments..."
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
+                  onKeyDown={handleKeyDown}
                   disabled={isTyping}
+                  className="pointer-events-auto"
                 />
                 <Button
                   onClick={handleSendMessage}
